@@ -26,7 +26,7 @@ const PopularScholarships = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16 bg-gradient-to-b from-blue-50 to-white">
+    <div className="max-w-7xl mx-auto px-4 mt-12 bg-gradient-to-b from-blue-50 to-white">
       <div className="text-center mb-16">
         <span className="inline-block bg-blue-100 text-blue-600 text-sm font-semibold px-4 py-1 rounded-full mb-3">
           TOP RATED
@@ -43,7 +43,7 @@ const PopularScholarships = () => {
         {scholarships.map((item, index) => (
           <div 
             key={item._id} 
-            className="relative group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
+            className="relative group bg-base-100 rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
           >
             {/* Award badge for top scholarship */}
             {index === 0 && (
@@ -65,7 +65,7 @@ const PopularScholarships = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-bold group-hover:text-blue-600 transition-colors">
                     {item.universityName}
                   </h3>
                   <div className="flex flex-wrap gap-2 mt-2">
@@ -80,19 +80,19 @@ const PopularScholarships = () => {
               </div>
 
               <div className="mb-6">
-                <div className="flex items-center gap-3 text-gray-600 mb-3">
+                <div className="flex items-center gap-3 mb-3">
                   <FaMapMarkerAlt className="text-blue-500 flex-shrink-0" />
                   <span className="text-sm">
                     {item.location.city}, {item.location.country}
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-gray-600 mb-3">
+                <div className="flex items-center gap-3 mb-3">
                   <FaMoneyBillWave className="text-green-500 flex-shrink-0" />
                   <span className="text-sm">
                     Application Fee: <span className="font-medium">${item.applicationFees}</span>
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-gray-600">
+                <div className="flex items-center gap-3">
                   <div className="flex items-center text-yellow-400 flex-shrink-0">
                     {[...Array(5)].map((_, i) => (
                       <FaStar 
@@ -102,7 +102,7 @@ const PopularScholarships = () => {
                       />
                     ))}
                   </div>
-                  <span className="text-sm font-medium text-gray-700">
+                  <span className="text-sm font-medium">
                     {average(item.ratings)}/5 ({item.ratings?.length || 0} reviews)
                   </span>
                 </div>
@@ -112,7 +112,7 @@ const PopularScholarships = () => {
                 <div className="flex justify-between items-center">
                   <div className="text-sm font-medium">
                     <span className="text-red-500">⏳ </span>
-                    <span className="text-gray-700">
+                    <span className="">
                       {format(new Date(item.deadline), 'MMM dd, yyyy')}
                     </span>
                   </div>
