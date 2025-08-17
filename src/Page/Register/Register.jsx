@@ -11,7 +11,7 @@ import { FaGoogle } from 'react-icons/fa';
 const Register = () => {
   
   const axiosSecure = useAxiosSecure()
-  const { createUser, updateUser, gLogin, logout } = useContext(AuthContext);
+  const { createUser, updateUser, gLogin,  } = useContext(AuthContext);
   const navigate = useNavigate();
   const [firebaseError, setFirebaseError] = useState('');
 

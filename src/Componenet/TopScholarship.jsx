@@ -39,8 +39,8 @@ const TopScholarship = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-blue-700 mb-3">Top Scholarships</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-4xl font-bold text-blue-600 mb-3">Top Scholarships</h2>
+        <p className="max-w-2xl mx-auto">
           Discover the best scholarship opportunities with low application fees
         </p>
       </div>
@@ -49,7 +49,7 @@ const TopScholarship = () => {
         {scholarships.map((scholarship) => (
           <div
             key={scholarship._id}
-            className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100"
+            className="group bg-base-100 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100"
           >
             <div className="relative h-48 overflow-hidden">
               <img
@@ -77,7 +77,7 @@ const TopScholarship = () => {
                 </span>
               </div>
               
-              <p className="text-sm text-gray-600 flex items-center gap-2 mb-3">
+              <p className="text-sm  flex items-center gap-2 mb-3">
                 <FaUniversity className="text-blue-500" />
                 <span className="line-clamp-1">{scholarship.universityName}</span>
               </p>
@@ -85,11 +85,11 @@ const TopScholarship = () => {
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-sm">
                   <FaRegClock className="text-blue-500" />
-                  <span className="text-gray-700">
+                  <span className="">
                     Deadline: {format(new Date(scholarship.deadline), "dd MMM yyyy")}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
+                <div className="flex items-center gap-2 text-sm ">
                   <FaCalendarAlt className="text-blue-500" />
                   <span>
                     Posted: {format(new Date(scholarship.createdAt), "dd MMM yyyy")}

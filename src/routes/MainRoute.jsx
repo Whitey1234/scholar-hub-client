@@ -35,6 +35,7 @@ import PrivateAdminRoute from "../private/PrivateAdminRoute";
 import PrivateModRoute from "../private/PrivateModRoute";
 import ErrorPage from "../Page/Error/ErrorPage";
 import ContactUs from "../Page/ContactUs";
+import DashboardProfile from "../Page/DashboardProfile";
 
 
 
@@ -100,6 +101,10 @@ const scholarshipLoader = async () => {
         {
            path : '/contact',
             element: <ContactUs/>
+        },
+        {
+          path: '/profile',
+          element: <PrivateRoute> <DashboardProfile></DashboardProfile> </PrivateRoute>
         },
         {
           path: "/*",
@@ -176,6 +181,11 @@ const scholarshipLoader = async () => {
   path: 'manage-scholarshipsmod',
   element: <PrivateModRoute> <ManageScholarshipMod/> </PrivateModRoute>
 },
+{
+  path: 'profile',
+  element: <PrivateModRoute> <MyProfile></MyProfile> </PrivateModRoute>
+},
+
 {
   path:'allreview',
   element : <PrivateModRoute> <AllReviewmod/> </PrivateModRoute>  

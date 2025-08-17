@@ -10,14 +10,14 @@ const AboutUs = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+    <section className=" bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800  dark:text-gray-200">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold dark:text-white text-gray-800 mb-4">
             Our <span className="text-blue-600">Mission</span> & Vision
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto text-gray-800">
             Democratizing access to education through innovative scholarship solutions
           </p>
         </div>
@@ -25,26 +25,26 @@ const AboutUs = () => {
         {/* Our Story */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
           <div className="order-2 md:order-1">
-            <h3 className="text-3xl font-bold text-gray-800 mb-6">
+            <h3 className="text-3xl  text-gray-800 font-bold dark:text-white mb-6">
               Bridging the Gap Between <span className="text-blue-600">Students</span> and Opportunities
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               Founded in 2020, our platform began as a small initiative to help local students find scholarship opportunities. 
               Today, we've grown into a global network connecting thousands of students with educational funding from 
               top institutions worldwide.
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-gray-600 ">
               What started as a simple database has evolved into an intelligent matching system that uses AI to pair students 
               with the scholarships they're most likely to win, saving them countless hours of searching and application time.
             </p>
             <div className="flex flex-wrap gap-4">
-              <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+              <div className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                 50,000+ Students Helped
               </div>
-              <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
+              <div className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-4 py-2 rounded-full text-sm font-medium">
                 $200M+ Awarded
               </div>
-              <div className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">
+              <div className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 px-4 py-2 rounded-full text-sm font-medium">
                 1,000+ Partner Institutions
               </div>
             </div>
@@ -61,16 +61,16 @@ const AboutUs = () => {
                 }}
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border border-gray-100 hidden md:block">
+            <div className="absolute -bottom-6 -left-6 bg-base-100 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hidden md:block">
               <div className="text-5xl font-bold text-blue-600">5+</div>
-              <div className="text-gray-600">Years of Experience</div>
+              <div className="">Years of Experience</div>
             </div>
           </div>
         </div>
 
         {/* Our Values */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <h3 className="text-3xl font-bold text-center text-gray-800  dark:text-white mb-12">
             Our Core <span className="text-blue-600">Values</span>
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -96,10 +96,10 @@ const AboutUs = () => {
                 description: "Only partnering with reputable institutions"
               }
             ].map((value, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
+              <div key={index} className="bg-base-100 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow text-center">
                 <div className="flex justify-center">{value.icon}</div>
-                <h4 className="text-xl font-bold text-gray-800 mb-2">{value.title}</h4>
-                <p className="text-gray-600">{value.description}</p>
+                <h4 className="text-xl font-bold  dark:text-white mb-2">{value.title}</h4>
+                <p className="">{value.description}</p>
               </div>
             ))}
           </div>
@@ -115,7 +115,7 @@ const AboutUs = () => {
                 to help us expand access to education.
               </p>
               <Link  to={'/login'}>
-              <button className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition-colors">
+              <button className="bg-base-100 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition-colors">
                 Explore Careers
               </button>
               </Link>
