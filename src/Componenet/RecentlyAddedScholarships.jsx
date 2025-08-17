@@ -22,10 +22,10 @@ const RecentlyAddedScholarships = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="max-w-7xl mx-auto px-4 ">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-blue-700 mb-3">Recently Added Scholarships</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-4xl font-bold text-blue-600 mb-3">Recently Added Scholarships</h2>
+        <p className=" max-w-2xl mx-auto">
           Fresh opportunities just added to our platform - apply before they're gone!
         </p>
       </div>
@@ -34,7 +34,7 @@ const RecentlyAddedScholarships = () => {
         {scholarships.map(item => (
           <div 
             key={item._id} 
-            className="group relative bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            className="group relative bg-base-100 rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
           >
             {/* Ribbon for "New" tag */}
             <div className="absolute -right-8 -top-0 w-32 bg-blue-500 text-white text-xs font-bold py-1 px-5 transform rotate-45 text-center z-10">
@@ -67,13 +67,13 @@ const RecentlyAddedScholarships = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-4 mb-5">
-                <div className="flex items-center gap-2 text-gray-700">
+                <div className="flex items-center gap-2">
                   <FaMapMarkerAlt className="text-blue-500" />
                   <span className="text-sm">
                     {item.location.city}, {item.location.country}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-700">
+                <div className="flex items-center gap-2 ">
                   <FaMoneyBillWave className="text-green-500" />
                   <span className="text-sm">${item.applicationFees} fee</span>
                 </div>

@@ -35,18 +35,18 @@ const UserStatistics = () => {
     fetchStats();
   }, []);
 
-  // Calculate percentages for the pie chart
+
   const userPercentage = (stats.users / stats.total) * 100;
   const adminPercentage = (stats.admins / stats.total) * 100;
   const moderatorPercentage = (stats.moderators / stats.total) * 100;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-7xl mx-auto px-4 mt-12">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 mb-3">
+        <h2 className="text-4xl font-bold  mb-3">
           <span className="text-blue-600">User</span> Statistics
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className=" max-w-2xl mx-auto">
           Overview of our community members and their roles
         </p>
       </div>
@@ -57,76 +57,74 @@ const UserStatistics = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Statistics Cards */}
+        
           <div className="grid grid-cols-2 gap-6">
-           <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+           <div className="bg-base-100 p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
   <div className="flex items-center justify-between">
     
-    {/* Left content */}
+  
     <div className="flex-1 flex flex-col items-center justify-center">
-      <p className="text-gray-500 text-sm font-medium">Total Users</p>
-      <h3 className="text-3xl font-bold text-gray-800 mt-15">
+      <p className=" text-sm font-medium">Total Users</p>
+      <h3 className="text-3xl font-bold  mt-15">
         <CountUp end={stats.total} duration={2} />
       </h3>
     </div>
 
-    {/* Right icon */}
+   
     <div className="p-3 rounded-full bg-blue-100 text-blue-600">
       <FaUsers size={24} />
     </div>
   </div>
 </div>
 
-           <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+           <div className="bg-base-100 p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
   <div className="flex items-center justify-between">
     
-    {/* Left content */}
+   
     <div className="flex-1 flex flex-col items-center justify-center">
-      <p className="text-gray-500 text-sm font-medium">Regular Users</p>
-      <h3 className="text-3xl font-bold text-gray-800 mt-15">
+      <p className=" text-sm font-medium">Regular Users</p>
+      <h3 className="text-3xl font-bold  mt-15">
         <CountUp end={stats.users} duration={2} />
       </h3>
     </div>
 
-    {/* Right icon */}
+   
     <div className="p-3 rounded-full bg-blue-100 text-blue-600">
       <FaUsers size={24} />
     </div>
   </div>
 </div>
 
-           <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+           <div className="bg-base-100 p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
   <div className="flex items-center justify-between">
     
-    {/* Left content */}
+ 
     <div className="flex-1 flex flex-col items-center justify-center">
-      <p className="text-gray-500 text-sm font-medium">Admins</p>
-      <h3 className="text-3xl font-bold text-gray-800 mt-15">
+      <p className=" text-sm font-medium">Admins</p>
+      <h3 className="text-3xl font-bold  mt-15">
         <CountUp end={stats.admins} duration={2} />
       </h3>
     </div>
 
-    {/* Right icon */}
     <div className="p-3 rounded-full bg-blue-100 text-blue-600">
       <FaUsers size={24} />
     </div>
   </div>
 </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+          <div className="bg-base-100 p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
   <div className="flex items-center justify-between">
     
-    {/* Left content */}
+   
     <div className="flex-1 flex flex-col items-center justify-center">
-      <p className="text-gray-500 text-sm font-medium">Moderators</p>
-      <h3 className="text-3xl font-bold text-gray-800 mt-15">
+      <p className=" text-sm font-medium">Moderators</p>
+      <h3 className="text-3xl font-bold  mt-15">
         <CountUp end={stats.moderators} duration={2} 
          
         />
       </h3>
     </div>
 
-    {/* Right icon */}
     <div className="p-3 rounded-full bg-blue-100 text-blue-600">
       <FaUsers size={24} />
     </div>
@@ -134,10 +132,10 @@ const UserStatistics = () => {
 </div>
           </div>
 
-          {/* Pie Chart Visualization */}
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+         
+          <div className="bg-base-100 p-6 rounded-xl shadow-lg border border-gray-100">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800">User Distribution</h3>
+              <h3 className="text-lg font-semibold ">User Distribution</h3>
               <FaChartPie className="text-blue-500" size={20} />
             </div>
             <div className="relative h-64 w-full">
@@ -156,21 +154,21 @@ const UserStatistics = () => {
                 ></div>
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="rounded-full bg-white" style={{ width: '120px', height: '120px' }}></div>
+                <div className="rounded-full bg-base" style={{ width: '120px', height: '120px' }}></div>
               </div>
             </div>
             <div className="flex justify-center space-x-6 mt-4">
               <div className="flex items-center">
                 <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-                <span className="text-sm text-gray-600">Users ({userPercentage.toFixed(1)}%)</span>
+                <span className="text-sm t">Users ({userPercentage.toFixed(1)}%)</span>
               </div>
               <div className="flex items-center">
                 <div className="w-3 h-3 rounded-full bg-purple-500 mr-2"></div>
-                <span className="text-sm text-gray-600">Admins ({adminPercentage.toFixed(1)}%)</span>
+                <span className="text-sm ">Admins ({adminPercentage.toFixed(1)}%)</span>
               </div>
               <div className="flex items-center">
                 <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-                <span className="text-sm text-gray-600">Moderators ({moderatorPercentage.toFixed(1)}%)</span>
+                <span className="text-sm ">Moderators ({moderatorPercentage.toFixed(1)}%)</span>
               </div>
             </div>
           </div>

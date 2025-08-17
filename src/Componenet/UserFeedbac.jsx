@@ -17,7 +17,7 @@ const UserFeedback = () => {
           role: "Student",
           university: "Top University",
           rating: 5,
-          avatar: user.image || `https://randomuser.me/api/portraits/${index % 2 === 0 ? 'women' : 'men'}/${index + 10}.jpg`,
+          avatar: user?.image || `https://randomuser.me/api/portraits/${index % 2 === 0 ? 'women' : 'men'}/${index + 10}.jpg`,
           quote: "This platform helped me find amazing scholarship opportunities!"
         }));
         
@@ -85,7 +85,7 @@ const UserFeedback = () => {
             <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto mb-12"></div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[1, 2, 3].map((_, index) => (
-                <div key={index} className="bg-white p-8 rounded-2xl shadow-lg">
+                <div key={index} className="bg-base-100 p-8 rounded-2xl shadow-lg">
                   <div className="flex justify-center mb-6 -mt-12">
                     <div className="w-24 h-24 rounded-full bg-gray-200 border-4 border-white shadow-md"></div>
                   </div>
@@ -107,10 +107,10 @@ const UserFeedback = () => {
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold mb-4">
             What Our <span className="text-blue-600">Students</span> Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto">
             Trusted by thousands of students from top universities worldwide
           </p>
         </div>
@@ -121,12 +121,12 @@ const UserFeedback = () => {
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
-                className={`bg-white p-8 rounded-2xl shadow-lg transform transition-all duration-500 ${activeIndex === index ? 'scale-105 border-2 border-blue-400' : 'scale-95 opacity-90'}`}
+                className={`bg-base-100 p-8 rounded-2xl shadow-lg transform transition-all duration-500 ${activeIndex === index ? 'scale-105 border-2 border-blue-400' : 'scale-95 opacity-90'}`}
               >
                 <div className="flex justify-center mb-6 -mt-12">
                   <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name}
+             src={testimonial?.avatar || "https://via.placeholder.com/80"} 
+                 alt={testimonial?.name || "Student"}
                     className="w-24 h-24 rounded-full border-4 border-white shadow-md object-cover"
                     onError={(e) => {
                       e.target.src = `https://randomuser.me/api/portraits/${index % 2 === 0 ? 'women' : 'men'}/${index + 10}.jpg`;
@@ -136,15 +136,15 @@ const UserFeedback = () => {
                 <div className="text-center mb-4">
                   <div className="flex justify-center gap-1 text-yellow-400 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <FaStar key={i} className={i < testimonial.rating ? "text-yellow-400" : "text-gray-300"} />
+                      <FaStar key={i} className={i < testimonial.rating ? "text-yellow-400" : ""} />
                     ))}
                   </div>
-                  <h4 className="text-xl font-bold text-gray-800">{testimonial.name}</h4>
-                  <p className="text-gray-600 text-sm">{testimonial.role} • {testimonial.university}</p>
+                  <h4 className="text-xl font-bold ">{testimonial.name}</h4>
+                  <p className=" text-sm">{testimonial.role} • {testimonial.university}</p>
                 </div>
                 <div className="relative">
                   <FaQuoteLeft className="absolute -top-2 left-0 text-blue-200 text-3xl" />
-                  <p className="text-gray-700 italic pl-8 mb-6">"{testimonial.quote}"</p>
+                  <p className=" italic pl-8 mb-6">"{testimonial.quote}"</p>
                 </div>
               </div>
             ))}
@@ -165,8 +165,8 @@ const UserFeedback = () => {
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <div className="flex justify-center mb-6 -mt-12">
               <img 
-                src={testimonials[activeIndex].avatar} 
-                alt={testimonials[activeIndex].name}
+                src={testimonials[activeIndex]?.avatar || "https://via.placeholder.com/80"} 
+                alt={testimonials[activeIndex]?.name || "Student"}
                 className="w-20 h-20 rounded-full border-4 border-white shadow-md object-cover"
                 onError={(e) => {
                   e.target.src = `https://randomuser.me/api/portraits/${activeIndex % 2 === 0 ? 'women' : 'men'}/${activeIndex + 10}.jpg`;
@@ -176,21 +176,21 @@ const UserFeedback = () => {
             <div className="text-center mb-4">
               <div className="flex justify-center gap-1 text-yellow-400 mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} className={i < testimonials[activeIndex].rating ? "text-yellow-400" : "text-gray-300"} />
+                  <FaStar key={i} className={i < testimonials[activeIndex]?.rating ? "text-yellow-400" : "text-gray-300"} />
                 ))}
               </div>
-              <h4 className="text-lg font-bold text-gray-800">{testimonials[activeIndex].name}</h4>
-              <p className="text-gray-600 text-xs">{testimonials[activeIndex].role} • {testimonials[activeIndex].university}</p>
+              <h4 className="text-lg font-bold ">{testimonials[activeIndex]?.name}</h4>
+              <p className=" text-xs">{testimonials[activeIndex]?.role} • {testimonials[activeIndex]?.university}</p>
             </div>
             <div className="relative">
               <FaQuoteLeft className="absolute -top-2 left-0 text-blue-200 text-2xl" />
-              <p className="text-gray-700 italic pl-8 mb-6 text-sm">"{testimonials[activeIndex].quote}"</p>
+              <p className=" italic pl-8 mb-6 text-sm">"{testimonials[activeIndex]?.quote}"</p>
             </div>
           </div>
           <div className="flex justify-between mt-6">
             <button 
               onClick={prevTestimonial}
-              className="p-2 rounded-full bg-white shadow-md text-blue-600 hover:bg-blue-50 transition-colors"
+              className="p-2 rounded-full bg-base-100 shadow-md text-blue-600 hover:bg-blue-50 transition-colors"
             >
               <FaChevronLeft />
             </button>
@@ -205,7 +205,7 @@ const UserFeedback = () => {
             </div>
             <button 
               onClick={nextTestimonial}
-              className="p-2 rounded-full bg-white shadow-md text-blue-600 hover:bg-blue-50 transition-colors"
+              className="p-2 rounded-full bg-base-100 shadow-md text-blue-600 hover:bg-blue-50 transition-colors"
             >
               <FaChevronRight />
             </button>

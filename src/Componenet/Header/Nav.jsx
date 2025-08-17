@@ -1,10 +1,11 @@
 // import React, { useContext } from 'react';
-import { Link } from 'react-router'; // Change to 'react-router-dom' if needed
+import { NavLink,  } from 'react-router'; // Change to 'react-router-dom' if needed
 
 import Lottie from 'lottie-react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { use } from 'react';
 import logo from '../../../logo.json'
+import { ThemeToggle } from '../ThemeToggle';
 
 const Nav = () => {
   //  Get user and logout from AuthContext (currently not in use)
@@ -32,25 +33,29 @@ const Nav = () => {
           {/* Desktop Nav */}
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal space-x-4">
-              <li><Link to="/" className="">Home</Link></li>
-              <li><Link to="/all-scholarship" className="">All Sholarship</Link></li>
-              <li><Link to="/contact" className="">Contact US</Link></li>
+             <li>
+  <NavLink to="/" className="">
+    Home
+  </NavLink>
+</li>
+              <li><NavLink to="/all-scholarship" className="">All Sholarship</NavLink></li>
+              <li><NavLink to="/contact" className="">Contact US</NavLink></li>
 
               {/* ✅ Only show these nav items if user is logged in (commented out now) */}
               {user && (
                 <>
-                  
+                   <li><NavLink to="/Profile" className="">My profile</NavLink></li>
                   {(userRole === 'admin' )&&(
-                      <li><Link to="/admin-dashboard" className="">Admin Dashboard</Link></li>
+                      <li><NavLink to="/admin-dashboard" className="">Admin Dashboard</NavLink></li>
                     )
                   }
                    {(userRole === 'moderator' )&&(
-                      <li><Link to="/moderetor-dashboard" className="">Moderetor Dashboard</Link></li>
+                      <li><NavLink to="/moderetor-dashboard" className="">Moderetor Dashboard</NavLink></li>
                     )
                   }
                   
                   {(userRole === 'user')&&(
-                      <li><Link to="/user-dashboard" className="">  Dashboard</Link></li>
+                      <li><NavLink to="/user-dashboard" className="">  Dashboard</NavLink></li>
                     )
                   }
                   
@@ -62,7 +67,7 @@ const Nav = () => {
 
           {/* Right Side */}
           <div className="flex items-center gap-3">
-            {/* <ThemeToggle /> */}
+            <ThemeToggle />
 
             {/* ✅ Auth UI (login/logout/profile) - commented out temporarily */}
             {user ? (
@@ -87,8 +92,8 @@ const Nav = () => {
               </>
             ) : (
               <>
-                <Link to="/login" className="btn btn-outline btn-sm  text-blue-700border-blue-700 hover:bg-blue-300 ">Login</Link>
-                <Link to="/signup" className="btn btn-outline btn-sm text-blue-700 border-blue-700 hover:bg-blue-300 ">Sign Up</Link>
+                <NavLink to="/login" className="btn btn-outline btn-sm  text-blue-700border-blue-700 hover:bg-blue-300 ">Login</NavLink>
+                <NavLink to="/signup" className="btn btn-outline btn-sm text-blue-700 border-blue-700 hover:bg-blue-300 ">Sign Up</NavLink>
               </>
              )} 
           </div>
@@ -98,29 +103,29 @@ const Nav = () => {
         <div className="lg:hidden">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost">
-              <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </label>
             <ul tabIndex={0} className="menu dropdown-content mt-2 p-3 shadow bg-base-100 rounded-box w-52 text-blue-700">
-              <li><Link to="/">Home</Link></li>
-            <li><Link to="/all-scholarship" className="hover:text-accent">All Sholarship</Link></li>
+              <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/all-scholarship" className="hover:text-accent">All Sholarship</NavLink></li>
 
               {/* ✅ Mobile nav items (commented out user-based links) */}
               {user && (
                 <>
                   
                   {(userRole === 'admin' )&&(
-                      <li><Link to="/admin-dashboard" className="">Admin Dashboard</Link></li>
+                      <li><NavLink to="/admin-dashboard" className="">Admin Dashboard</NavLink></li>
                     )
                   }
                    {(userRole === 'moderator' )&&(
-                      <li><Link to="/moderetor-dashboard" className="">Moderetor Dashboard</Link></li>
+                      <li><NavLink to="/moderetor-dashboard" className="">Moderetor Dashboard</NavLink></li>
                     )
                   }
                   
                   {(userRole === 'user' ||userRole === 'moderator' || userRole === 'admin'  )&&(
-                      <li><Link to="/user-dashboard" className=""> Dashboard</Link></li>
+                      <li><NavLink to="/user-dashboard" className=""> Dashboard</NavLink></li>
                     )
                   }
                   
